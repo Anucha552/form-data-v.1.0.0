@@ -1,0 +1,315 @@
+/**
+ * Form Data Management System
+ * แบบฟอร์มขึ้นทะเบียนขอใช้สิทธิตามมาตรา 35
+ * 
+ * @author Mr. Anucha Khemthong
+ * @version 1.0.0
+ * @date มกราคม 2026
+ * @description Custom styles สำหรับแบบฟอร์มและการจัดรูปแบบเอกสาร
+ */
+
+body {
+  box-sizing: border-box;
+  font-family: "Sarabun", sans-serif;
+}
+
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #f0f9ff;
+  --text-color: #1e293b;
+  --border-color: #cbd5e1;
+  --success-color: #10b981;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.checkbox-group > div {
+  min-width: 200px;
+}
+
+.form-check-input {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.form-section {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .form-section {
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.1);
+}
+
+.btn-submit {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #1d4ed8;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--primary-color);
+}
+
+.success-message {
+  background: var(--success-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.bg-gradient-custom {
+  background-color: #764ba2;
+}
+
+/* Responsive input fields in section 4 */
+.bg-light input[type="text"],
+.bg-light input[type="number"],
+.bg-light select {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .checkbox-group > div {
+    min-width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .fs-5 {
+    font-size: 1rem !important;
+  }
+
+  .section-title {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .bg-light {
+    line-height: 2 !important;
+    font-size: 0.9rem !important;
+  }
+
+  .bg-light input[type="text"],
+  .bg-light input[type="number"],
+  .bg-light select {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.25rem 0;
+    display: block;
+  }
+
+  .bg-light .text-end {
+    text-align: left !important;
+  }
+
+  .bg-light .row {
+    margin-top: 2rem !important;
+  }
+}
+
+.color-asterisk {
+  color: red;
+}
+
+.checkbox-group-fl {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 5px;
+}
+
+.bg-light {
+  background-color: #ffffff !important;
+}
+
+.date-custom-input {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.date-custom-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* ========== Print Styles ========== */
+
+/* ซ่อนองค์ประกอบที่ไม่ต้องการพิมพ์ */
+@media screen {
+  .print-only {
+    display: none;
+  }
+}
+
+/* สไตล์สำหรับการพิมพ์ */
+@media print {
+  /* ===== โหลดฟอนต์ ===== */
+  @font-face {
+    font-family: "TH Sarabun New";
+    src: url("/font/THSarabunNew.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "TH Sarabun New";
+    src: url("/font/THSarabunNew-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  /* ===== ตั้งค่าหน้ากระดาษ ===== */
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  /* ===== ซ่อนสิ่งที่ไม่ต้องการพิมพ์ ===== */
+  .screen-only {
+    display: none !important;
+  }
+
+  /* ===== ตั้งค่าพื้นฐานเอกสาร ===== */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "TH Sarabun New", sans-serif;
+    font-size: 18px;
+    color: #000;
+    background: #ffffff;
+  }
+
+  /* ===== การแบ่งหน้า ===== */
+  .page {
+    page-break-after: always;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+  }
+
+  .icon-status-distable {
+    font-size: 27px;
+  }
+
+  .box-card-number-distable {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .box-card-number-distable .box-distable, .box-caretaker, .box-distable-caregiver {
+    width: 27px;
+    height: 30px;
+    border: 1px solid #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box-card-number-distable .dash {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .icon-status-type-distable {
+    font-size: 19px;
+  }
+
+  .document-borders {
+    height: 25px;
+    border-bottom: 1px dotted #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .document-flex {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+  }
+
+  .fname-distable, .lname-distable {
+    width: 180px;
+  }
+
+  .building-name-distable, .building-name-caregiver {
+    width: 200px;
+  }
+
+  .bfnv {
+    width: 50px;
+  }
+
+  .arsd {
+    width: 120px;
+  }
+
+  .email-distable, .email-caregiver {
+    width: 210px;
+  }
+
+  .nearby-place-distable, .nearby-place-caregiver {
+    width: 330px;
+  }
+
+  .size-icon-a {
+    font-size: 20px;
+  }
+
+}

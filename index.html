@@ -1,0 +1,1902 @@
+<!doctype html>
+<html lang="th-en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Mr. Anucha Khemthong Web Dev Developer">
+  <title>แบบฟอร์มขึ้นทะเบียน</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link href="bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=TH+Sarabun+New:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/font/THSarabunNew.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/font/THSarabunNew-Bold.ttf" as="font" type="font/ttf" crossorigin>
+
+</head>
+
+<body>
+  <div class="flex-grow-1 overflow-auto bg-gradient-custom screen-only">
+    <div class="container py-4 px-3" style="max-width: 970px;">
+      <div class="text-center mb-4 pt-3">
+        <h1 id="form-title" class="fw-bold text-white mb-2">แบบฟอร์มขึ้นทะเบียนขอใช้สิทธิตามมาตรา 35</h1>
+        <p id="organization-name" class="text-white fs-5">กรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ</p>
+      </div>
+      <form id="disability-form">
+
+        <!-- ส่วนที่ 1: ข้อมูลผู้ขอใช้สิทธิ -->
+        <div class="form-section">
+          <h2 class="section-title">ส่วนที่ 1 ข้อมูลคนพิการ / ผู้ดูแลคนพิการ</h2>
+
+          <!-- เลือกประเภทผู้ขอใช้สิทธิ -->
+          <div class="mb-3">
+            <label class="form-label fw-medium">ประเภทผู้ขอใช้สิทธิ</label>
+            <div class="checkbox-group">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="applicant-self" name="applicant_type" value="self"
+                  checked>
+                <label class="form-check-label" for="applicant-self">คนพิการขอใช้สิทธิด้วยตนเอง</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="applicant-caregiver" name="applicant_type"
+                  value="caregiver">
+                <label class="form-check-label" for="applicant-caregiver">ผู้ดูแลคนพิการขอใช้สิทธิแทน</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- แสดงข้อมูลตามที่เลือก -->
+          <div class="box-show-data-disability-select">
+
+            <!-- คนพิการขอใช้สิทธิด้วยตนเอง -->
+            <div class="right-disabilities">
+
+              <!-- 1. เลขบัตรประจำตัวประชาชน / บัตรประจำตัวคนพิการ -->
+              <div class="mb-3">
+                <label for="id-card-self" class="form-label fw-medium">1. เลขบัตรประจำตัวประชาชน /
+                  บัตรประจำตัวคนพิการ</label>
+                <input type="number" id="id-card-self" name="id_card_self" class="form-control" maxlength="13"
+                  placeholder="กรอกเลขบัตร 13 หลัก">
+              </div>
+
+              <!-- 2. ประเภทความพิการ -->
+              <div class="mb-3">
+                <label class="form-label fw-medium">2. ประเภทความพิการ</label>
+                <div class="checkbox-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="disability-sight-self" name="disability_type[]"
+                      value="การเห็น">
+                    <label class="form-check-label" for="disability-sight-self">การเห็น</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="disability-hearing-self"
+                      name="disability_type[]" value="การได้ยิน">
+                    <label class="form-check-label" for="disability-hearing-self">การได้ยิน</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="disability-movement-self"
+                      name="disability_type[]" value="การเคลื่อนไหว">
+                    <label class="form-check-label" for="disability-movement-self">การเคลื่อนไหว</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="disability-mental-self" name="disability_type[]"
+                      value="จิตใจ">
+                    <label class="form-check-label" for="disability-mental-self">จิตใจ</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="disability-intellectual-self"
+                      name="disability_type[]" value="สติปัญญา">
+                    <label class="form-check-label" for="disability-intellectual-self">สติปัญญา</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="disability-learning-self"
+                      name="disability_type[]" value="การเรียนรู้">
+                    <label class="form-check-label" for="disability-learning-self">การเรียนรู้</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="disability-autistic-self"
+                      name="disability_type[]" value="ออทิสติก">
+                    <label class="form-check-label" for="disability-autistic-self">ออทิสติก</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. ชื่อ-สกุล -->
+              <div class="mb-3">
+                <label for="full-name" class="form-label fw-medium">3. ชื่อ-สกุล</label>
+                <div class="checkbox-group-fl">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="name-prefix-child" name="name_prefix"
+                      value="ด.ช./ด.ญ.">
+                    <label class="form-check-label" for="name-prefix-child">ด.ช./ด.ญ.</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="name-prefix-mr" name="name_prefix"
+                      value="นาย/นาง/นางสาว">
+                    <label class="form-check-label" for="name-prefix-mr">นาย/นาง/นางสาว</label>
+                  </div>
+                </div>
+                <input type="text" id="full-name" name="full_name" class="form-control" placeholder="ชื่อและนามสกุล">
+              </div>
+
+              <!-- 4. ที่อยู่ปัจจุบันที่ติดต่อได้ -->
+              <div class="mb-0">
+                <label class="form-label fw-medium">4. ที่อยู่ปัจจุบันที่ติดต่อได้</label>
+                <div class="row g-2">
+                  <div class="col-md-3">
+                    <input type="text" id="address-building" name="address_building" class="form-control"
+                      placeholder="ชื่ออาคาร">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="address-floor" name="address_floor" class="form-control"
+                      placeholder="ชั้นที่">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="address-number" name="address_number" class="form-control"
+                      placeholder="เลขที่">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="moo" name="moo" class="form-control" placeholder="หมู่ที่">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="soi" name="soi" class="form-control" placeholder="ซอย">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="road" name="road" class="form-control" placeholder="ถนน">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="subdistrict" name="subdistrict" class="form-control" placeholder="แขวง/ตำบล">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="district" name="district" class="form-control" placeholder="เขต/อำเภอ">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="province" name="province" class="form-control" placeholder="จังหวัด">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="postal-code" name="postal_code" class="form-control"
+                      placeholder="รหัสไปรษณีย์" maxlength="5">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="เบอร์โทรศัพท์">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="tel" id="mobile" name="mobile" class="form-control" required placeholder="เบอร์มือถือ"
+                      maxlength="10">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="อีเมล">
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <textarea id="nearby-places" name="nearby_places" class="form-control" rows="3"
+                    placeholder="สถานที่ใกล้เคียง"></textarea>
+                </div>
+              </div>
+
+              <!-- 5. วัน/เดือน/ปีเกิด, อายุ, สัญชาติ, ศาสนา -->
+              <div class="row g-3 mt-1">
+                <div class="col-lg-6">
+                  <label for="birth-date" class="form-label fw-medium">5. วัน/เดือน/ปีเกิด</label>
+                  <div class="bg-light">
+                    <div class="text-start">
+                      <span>วันที่ </span>
+                      <input type="number" id="confirm-day-self" name="birth_day" min="1" max="31"
+                        class="text-center date-custom-input" style="width: 75px;" placeholder="วัน">
+                      <span> เดือน </span>
+                      <select id="confirm-month-self" name="birth_month" class="text-center date-custom-input"
+                        style="width: 120px;">
+                        <option value="">เลือก</option>
+                        <option value="มกราคม">มกราคม</option>
+                        <option value="กุมภาพันธ์">กุมภาพันธ์</option>
+                        <option value="มีนาคม">มีนาคม</option>
+                        <option value="เมษายน">เมษายน</option>
+                        <option value="พฤษภาคม">พฤษภาคม</option>
+                        <option value="มิถุนายน">มิถุนายน</option>
+                        <option value="กรกฎาคม">กรกฎาคม</option>
+                        <option value="สิงหาคม">สิงหาคม</option>
+                        <option value="กันยายน">กันยายน</option>
+                        <option value="ตุลาคม">ตุลาคม</option>
+                        <option value="พฤศจิกายน">พฤศจิกายน</option>
+                        <option value="ธันวาคม">ธันวาคม</option>
+                      </select>
+                      <span> พ.ศ. </span>
+                      <input type="number" id="confirm-year-thai-self" name="birth_year" min="2500" max="2600"
+                        class="text-center date-custom-input" style="width: 85px;" placeholder="พ.ศ.">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <label for="age" class="form-label fw-medium">อายุ (ปี)</label>
+                  <input type="number" id="age" name="age" class="form-control" min="0" max="150" placeholder="อายุ">
+                </div>
+                <div class="col-md-6">
+                  <label for="nationality" class="form-label fw-medium">สัญชาติ</label>
+                  <input type="text" id="nationality" name="nationality" class="form-control" value="ไทย">
+                </div>
+                <div class="col-md-6">
+                  <label for="religion" class="form-label fw-medium">ศาสนา</label>
+                  <input type="text" id="religion" name="religion" class="form-control" value="พุทธ">
+                </div>
+              </div>
+
+              <!-- 6. สถานภาพ -->
+              <div class="mb-3 mt-3">
+                <label class="form-label fw-medium">
+                  6. สถานภาพ
+                </label>
+                <div class="checkbox-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="status-single" name="marital_status" value="โสด">
+                    <label class="form-check-label" for="status-single">โสด</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="status-married" name="marital_status" value="สมรส">
+                    <label class="form-check-label" for="status-married">สมรส</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="status-other" name="marital_status" value="อื่นๆ">
+                    <label class="form-check-label" for="status-other">
+                      อื่น ๆ (ระบุ)
+                    </label>
+                  </div>
+                  <input type="text" id="marital-status-other" name="marital_status_other" class="form-control"
+                    placeholder="ระบุสถานภาพอื่น ๆ" style="display: none;">
+                </div>
+              </div>
+
+              <!-- 7. สำเร็จการศึกษา -->
+              <div class="mb-3">
+                <label class="form-label fw-medium">7. สำเร็จการศึกษา</label>
+                <div class="checkbox-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-lower" name="education"
+                      value="ต่ำกว่าประถมศึกษา">
+                    <label class="form-check-label" for="edu-lower">ต่ำกว่าประถมศึกษา</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-primary" name="education" value="ประถมศึกษา">
+                    <label class="form-check-label" for="edu-primary">ประถมศึกษา</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-secondary1" name="education"
+                      value="มัธยมศึกษาตอนต้น">
+                    <label class="form-check-label" for="edu-secondary1">มัธยมศึกษาตอนต้น</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-secondary2" name="education"
+                      value="มัธยมศึกษาตอนปลายหรือเทียบเท่า">
+                    <label class="form-check-label" for="edu-secondary2">มัธยมศึกษาตอนปลายหรือเทียบเท่า</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-bachelor" name="education" value="ปริญญาตรี">
+                    <label class="form-check-label" for="edu-bachelor">ปริญญาตรี</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-master" name="education"
+                      value="ปริญญาโทขึ้นไป">
+                    <label class="form-check-label" for="edu-master">ปริญญาโทขึ้นไป</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-other" name="education" value="อื่นๆ">
+                    <label class="form-check-label" for="edu-other">อื่น ๆ (ระบุ)</label>
+                  </div>
+                </div>
+                <input type="text" id="education-other" name="education_other" class="form-control mt-2"
+                  placeholder="ระบุการศึกษาอื่น ๆ" style="display: none;">
+              </div>
+            </div>
+
+            <!-- ผู้ดูแลคนพิการขอใช้สิทธิแทน -->
+            <div class="right-disabilities" style="display: none;">
+
+              <!-- 1. เลขบัตรประชาชน -->
+              <div class="mb-3">
+                <label for="caregiver-id" class="form-label fw-medium">1. เลขบัตรประชาชน</label>
+                <input type="number" id="caregiver-id" name="caregiver_id" class="form-control" maxlength="13"
+                  placeholder="เลขบัตร 13 หลัก">
+              </div>
+
+              <!-- 2. ชื่อ-สกุลผูดูแล -->
+              <div class="mb-3">
+                <label for="caregiver-name" class="form-label fw-medium">2. ชื่อ-สกุลผู้ดูแล</label>
+                <div class="checkbox-group-fl">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="name_prefix_caregiver_mr"
+                      name="name_prefix_caregiver" value="นาย">
+                    <label class="form-check-label" for="name_prefix_caregiver_mr">1. นาย</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="name_prefix_caregiver_ms"
+                      name="name_prefix_caregiver" value="นาง">
+                    <label class="form-check-label" for="name_prefix_caregiver_ms">2. นาง</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="name_prefix_caregiver_miss"
+                      name="name_prefix_caregiver" value="นางสาว">
+                    <label class="form-check-label" for="name_prefix_caregiver_miss">3. นางสาว</label>
+                  </div>
+                </div>
+                <input type="text" id="caregiver-name" name="caregiver_name" class="form-control"
+                  placeholder="ชื่อและนามสกุลผู้ดูแล">
+              </div>
+
+              <!-- 3. ที่อยู่ปัจจุบันที่ติดต่อได้ -->
+              <div class="mb-0">
+                <label class="form-label fw-medium">3. ที่อยู่ปัจจุบันที่ติดต่อได้</label>
+                <div class="row g-2">
+                  <div class="col-md-3">
+                    <input type="text" id="address-building-caregiver" name="address_building_caregiver"
+                      class="form-control" placeholder="ชื่ออาคาร">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="address-floor-caregiver" name="address_floor_caregiver" class="form-control"
+                      placeholder="ชั้นที่">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="address-number-caregiver" name="address_number_caregiver"
+                      class="form-control" placeholder="เลขที่">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="moo-caregiver" name="moo_caregiver" class="form-control"
+                      placeholder="หมู่ที่">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="soi-caregiver" name="soi_caregiver" class="form-control" placeholder="ซอย">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="road-caregiver" name="road_caregiver" class="form-control" placeholder="ถนน">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="subdistrict-caregiver" name="subdistrict_caregiver" class="form-control"
+                      placeholder="แขวง/ตำบล">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="district-caregiver" name="district_caregiver" class="form-control"
+                      placeholder="เขต/อำเภอ">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="province-caregiver" name="province_caregiver" class="form-control"
+                      placeholder="จังหวัด">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" id="postal-code-caregiver" name="postal_code_caregiver" class="form-control"
+                      placeholder="รหัสไปรษณีย์" maxlength="5">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="tel" id="phone-caregiver" name="phone_caregiver" class="form-control"
+                      placeholder="เบอร์โทรศัพท์">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="tel" id="mobile-caregiver" name="mobile_caregiver" class="form-control"
+                      placeholder="เบอร์มือถือ" maxlength="10">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="email" id="email-caregiver" name="email_caregiver" class="form-control"
+                      placeholder="อีเมล">
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <textarea id="nearby-places-caregiver" name="nearby_places_caregiver" class="form-control" rows="3"
+                    placeholder="สถานที่ใกล้เคียง"></textarea>
+                </div>
+              </div>
+
+              <!-- 4. วัน/เดือน/ปีเกิด, อายุ, สัญชาติ, ศาสนา -->
+              <div class="row g-3 mt-1">
+                <div class="col-lg-6">
+                  <label for="birth-date-caregiver" class="form-label fw-medium">4. วัน/เดือน/ปีเกิด</label>
+                  <div class="bg-light">
+                    <div class="text-start">
+                      <span>วันที่ </span>
+                      <input type="number" id="confirm-day-caregiver" name="birth_day_caregiver" min="1" max="31"
+                        class="text-center date-custom-input" style="width: 75px;" placeholder="วัน">
+                      <span> เดือน </span>
+                      <select id="confirm-month-caregiver" name="birth_month_caregiver"
+                        class="text-center date-custom-input" style="width: 120px;">
+                        <option value="">เลือก</option>
+                        <option value="มกราคม">มกราคม</option>
+                        <option value="กุมภาพันธ์">กุมภาพันธ์</option>
+                        <option value="มีนาคม">มีนาคม</option>
+                        <option value="เมษายน">เมษายน</option>
+                        <option value="พฤษภาคม">พฤษภาคม</option>
+                        <option value="มิถุนายน">มิถุนายน</option>
+                        <option value="กรกฎาคม">กรกฎาคม</option>
+                        <option value="สิงหาคม">สิงหาคม</option>
+                        <option value="กันยายน">กันยายน</option>
+                        <option value="ตุลาคม">ตุลาคม</option>
+                        <option value="พฤศจิกายน">พฤศจิกายน</option>
+                        <option value="ธันวาคม">ธันวาคม</option>
+                      </select>
+                      <span> พ.ศ. </span>
+                      <input type="number" id="confirm-year-thai-caregiver" name="birth_year_caregiver" min="2500"
+                        max="2600" class="text-center date-custom-input" style="width: 85px;" placeholder="พ.ศ.">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <label for="age-caregiver" class="form-label fw-medium">อายุ (ปี)</label>
+                  <input type="number" id="age-caregiver" name="age_caregiver" class="form-control" min="0" max="150"
+                    placeholder="อายุ">
+                </div>
+                <div class="col-md-6">
+                  <label for="nationality-caregiver" class="form-label fw-medium">สัญชาติ</label>
+                  <input type="text" id="nationality-caregiver" name="nationality_caregiver" class="form-control"
+                    value="ไทย">
+                </div>
+                <div class="col-md-6">
+                  <label for="religion-caregiver" class="form-label fw-medium">ศาสนา</label>
+                  <input type="text" id="religion-caregiver" name="religion_caregiver" class="form-control"
+                    value="พุทธ">
+                </div>
+              </div>
+
+              <!-- 5. สถานภาพ -->
+              <div class="mb-3 mt-3">
+                <label class="form-label fw-medium">
+                  5. สถานภาพ
+                </label>
+                <div class="checkbox-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="status-single-caregiver"
+                      name="marital_status-caregiver" value="โสด">
+                    <label class="form-check-label" for="status-single-caregiver">โสด</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="status-married-caregiver"
+                      name="marital_status-caregiver" value="สมรส">
+                    <label class="form-check-label" for="status-married-caregiver">สมรส</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="status-other-caregiver"
+                      name="marital_status-caregiver" value="อื่นๆ">
+                    <label class="form-check-label" for="status-other-caregiver">
+                      อื่น ๆ (ระบุ)
+                    </label>
+                  </div>
+                  <input type="text" id="marital-status-other-caregiver" name="marital_status_other_caregiver"
+                    class="form-control" placeholder="ระบุสถานภาพอื่น ๆ" style="display: none;">
+                </div>
+              </div>
+
+              <!-- 6. สำเร็จการศึกษา -->
+              <div class="mb-3">
+                <label class="form-label fw-medium">6. สำเร็จการศึกษา</label>
+                <div class="checkbox-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-lower-caregiver" name="education-caregiver"
+                      value="ต่ำกว่าประถมศึกษา">
+                    <label class="form-check-label" for="edu-lower-caregiver">ต่ำกว่าประถมศึกษา</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-primary-caregiver" name="education-caregiver"
+                      value="ประถมศึกษา">
+                    <label class="form-check-label" for="edu-primary-caregiver">ประถมศึกษา</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-secondary1-caregiver"
+                      name="education-caregiver" value="มัธยมศึกษาตอนต้น">
+                    <label class="form-check-label" for="edu-secondary1-caregiver">มัธยมศึกษาตอนต้น</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-secondary2-caregiver"
+                      name="education-caregiver" value="มัธยมศึกษาตอนปลายหรือเทียบเท่า">
+                    <label class="form-check-label"
+                      for="edu-secondary2-caregiver">มัธยมศึกษาตอนปลายหรือเทียบเท่า</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-bachelor-caregiver" name="education-caregiver"
+                      value="ปริญญาตรี">
+                    <label class="form-check-label" for="edu-bachelor-caregiver">ปริญญาตรี</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-master-caregiver" name="education-caregiver"
+                      value="ปริญญาโทขึ้นไป">
+                    <label class="form-check-label" for="edu-master-caregiver">ปริญญาโทขึ้นไป</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="edu-other-caregiver" name="education-caregiver"
+                      value="อื่นๆ">
+                    <label class="form-check-label" for="edu-other-caregiver">อื่น ๆ (ระบุ)</label>
+                  </div>
+                </div>
+                <input type="text" id="education-other-caregiver" name="education_other_caregiver"
+                  class="form-control mt-2" placeholder="ระบุการศึกษาอื่น ๆ" style="display: none;">
+              </div>
+
+              <!-- 7. ใช้สิทธิแทนคนพิการ -->
+              <div class="mb-3">
+                <label class="form-label fw-medium">7. ใช้สิทธิแทนคนพิการ</label>
+                <div class="checkbox-group-fl">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="name_prefix-caregiver"
+                      id="name-prefix-child-caregiver" value="ด.ช./ด.ญ">
+                    <label class="form-check-label" for="name-prefix-child-caregiver">ด.ช./ด.ญ.</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="name_prefix-caregiver"
+                      id="name-prefix-mr-caregiver" value="นาย/นาง/นางสาว">
+                    <label class="form-check-label" for="name-prefix-mr-caregiver">นาย/นาง/นางสาว</label>
+                  </div>
+                </div>
+                <input type="text" id="full-name-caregiver" name="full_name_caregiver" class="form-control mt-2"
+                  placeholder="ชื่อและนามสกุลคนพิการ">
+              </div>
+
+              <!-- 8. เลขบัตรประจำตัวประชาชน / บัตรประจำตัวคนพิการ -->
+              <div class="mb-3">
+                <label for="id-card-caregiver" class="form-label fw-medium">8. เลขบัตรประจำตัวประชาชน /
+                  บัตรประจำตัวคนพิการ</label>
+                <input type="number" id="id-card-caregiver" name="id_card_caregiver" class="form-control" maxlength="13"
+                  placeholder="กรอกเลขบัตร 13 หลัก">
+              </div>
+
+              <!-- 9. ความเกี่ยวข้องกับคนพิการ -->
+              <div class="mb-3">
+                <label for="relationship-caregiver" class="form-label fw-medium">9. ความเกี่ยวข้องกับคนพิการ</label>
+                <textarea class="form-control" name="relationship-caregiver" id="relationship-caregiver" rows="3"
+                  placeholder="ระบุความพิการที่เกี่ยวข้องกับคนพิการ"></textarea>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ส่วนที่ 2: กรณีคนพิการยินยอมให้ผู้ดูแลคนพิการใช้สิทธิตามมาตรา 35 แทน -->
+        <div class="form-section">
+          <h2 class="section-title">ส่วนที่ 2 กรณีคนพิการยินยอมให้ผู้ดูแลคนพิการใช้สิทธิตามมาตรา 35 แทน</h2>
+
+          <div class="row">
+            <!-- ข้าพเจ้า -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label fw-medium" for="representative">ข้าพเจ้า</label>
+                <input type="text" id="representative" name="representative" class="form-control"
+                  placeholder="ระบุชื่อ-สกุล คนพิการ">
+              </div>
+            </div>
+
+            <!-- ถือบัตรประจำตัวคนพิการเลขที่ -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label fw-medium" for="disability-card-number">ถือบัตรประจำตัวคนพิการเลขที่</label>
+                <input type="number" id="disability-card-number" name="disability_card_number" class="form-control"
+                  maxlength="13" placeholder="ระบุเลขบัตรประจำตัวคนพิการ">
+              </div>
+            </div>
+          </div>
+
+          <!-- ยินยอมให้ -->
+          <div class="mb-3">
+            <label class="form-label fw-medium" for="consent-to">ยินยอมให้</label>
+            <input type="text" id="consent-to" name="consent_to" class="form-control"
+              placeholder="ระบุชื่อ-สกุล ผู้ดูแลคนพิการ">
+          </div>
+
+          <!-- ซึ่งเป็นผู้ดูแลข้าพเจ้าและมีชื่อในบัตรประจำตัวคนพิการ
+ดำเนินการขึ้นทะเบียนขอใช้สิทธิตามมาตรา 35 แทนข้าพเจ้า  เนื่องจาก -->
+          <div class="mb-3">
+            <label class="form-label fw-medium"
+              for="reason-for-consent">ซึ่งเป็นผู้ดูแลข้าพเจ้าและมีชื่อในบัตรประจำตัวคนพิการ
+              ดำเนินการขึ้นทะเบียนขอใช้สิทธิตามมาตรา 35 แทนข้าพเจ้า เนื่องจาก</label>
+            <div class="checkbox-group">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="reason-minor" name="reason-for-consent"
+                  value="เป็นผู้เยาว์ (อายุไม่เกิน 20 ปีบริบูรณ์)">
+                <label class="form-check-label" for="reason-minor">เป็นผู้เยาว์ (อายุไม่เกิน 20 ปีบริบูรณ์)</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="reason-elderly" name="reason-for-consent"
+                  value="เป็นผู้สูงอายุ (อายุ 70 ปีขึ้นไป)">
+                <label class="form-check-label" for="reason-elderly">เป็นผู้สูงอายุ (อายุ 70 ปีขึ้นไป)</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="reason-incapable" name="reason-for-consent"
+                  value="เป็นคนไร้ความสามารถ/เสมือนไร้ความสามารถ (พิจารณาจากคำสั่งศาล)">
+                <label class="form-check-label" for="reason-incapable">เป็นคนไร้ความสามารถ/เสมือนไร้ความสามารถ
+                  (พิจารณาจากคำสั่งศาล)</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" id="reason-office" name="reason-for-consent" value="เป็นคนพิการซึ่งมีสภาพความพิการ">
+                <label class="form-check-label"
+                  for="reason-office">เป็นคนพิการซึ่งมีสภาพความพิการถึงขั้นที่ไม่สามารถประกอบอาชีพได้
+                  โดยมีหนังสือรับรองจากกรมการส่งเสริมและ
+                  พัฒนาคุณภาพชีวิตคนพิการ หรือสำนักงานพัฒนาสังคมและความมั่นคงของมนุษย์จังหวัด
+                  หรือศูนย์บริการคนพิการระดับจังหวัด</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- ลงชื่อคนพิการ -->
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label class="form-label fw-medium" for="disability-signature">ลงชื่อคนพิการ</label>
+                <input type="text" id="disability-signature" name="disability_signature" class="form-control"
+                  placeholder="ระบุชื่อ-สกุล คนพิการ">
+              </div>
+            </div>
+
+            <!-- วันที่ เดือน พ.ศ. -->
+            <div class="col-lg-6">
+              <label class="form-label fw-medium">วันที่ลงชื่อคนพิการ</label>
+              <div class="bg-light">
+                <div class="text-start">
+                  <span>วันที่ </span>
+                  <input type="number" id="disability-signature-confirm-day" name="disability_signature_day" min="1"
+                    max="31" class="text-center date-custom-input" style="width: 75px;" placeholder="วัน">
+                  <span> เดือน </span>
+                  <select id="disability-signature-confirm-month" name="disability_signature_month"
+                    class="text-center date-custom-input" style="width: 120px;">
+                    <option value="">เลือก</option>
+                    <option value="มกราคม">มกราคม</option>
+                    <option value="กุมภาพันธ์">กุมภาพันธ์</option>
+                    <option value="มีนาคม">มีนาคม</option>
+                    <option value="เมษายน">เมษายน</option>
+                    <option value="พฤษภาคม">พฤษภาคม</option>
+                    <option value="มิถุนายน">มิถุนายน</option>
+                    <option value="กรกฎาคม">กรกฎาคม</option>
+                    <option value="สิงหาคม">สิงหาคม</option>
+                    <option value="กันยายน">กันยายน</option>
+                    <option value="ตุลาคม">ตุลาคม</option>
+                    <option value="พฤศจิกายน">พฤศจิกายน</option>
+                    <option value="ธันวาคม">ธันวาคม</option>
+                  </select>
+                  <span> พ.ศ. </span>
+                  <input type="number" id="disability-signature-confirm-year-thai" name="disability_signature_year"
+                    min="2500" max="2600" class="text-center date-custom-input" style="width: 85px;" placeholder="พ.ศ.">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ส่วนที่ 3: ประเภทการขอใช้สิทธิตามมาตรา 35 -->
+        <div class="form-section">
+          <h2 class="section-title">ส่วนที่ 3 ประเภทการขอใช้สิทธิตามมาตรา 35 </h2>
+
+          <!-- สัมปทาน -->
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="concession-type-access" name="access_type[]"
+              value="สัมปทาน">
+            <label class="form-check-label" for="concession-type-access">สัมปทาน</label>
+          </div>
+          <input type="text" id="concession-type-access-detail" name="concession_type_access_detail"
+            class="form-control mt-2" placeholder="ระบุประเภทสัมปทาน" style="display: none;">
+
+          <!-- สถานที่จำหน่ายสินค้าหรือบริการ -->
+          <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="service-type-access" name="access_type[]"
+              value="สถานที่จำหน่ายสินค้าหรือบริการ">
+            <label class="form-check-label" for="service-type-access">สถานที่จำหน่ายสินค้าหรือบริการ</label>
+          </div>
+          <div class="box-service-type-access" id="service-type-access-details" style="display: none;">
+            <div class="row">
+              <div class="col-md-6">
+                <input type="text" class="form-control mt-2" id="service-type-access-area"
+                  name="service_type_access_area" placeholder="ระบุขนาดพื้นที่ที่ต้องการใช้ประกอบกิจการต่อตารางเมตร">
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control mt-2" id="service-type-access-business"
+                  name="service_type_access_business" placeholder="ระบุประเภทกิจการ">
+              </div>
+            </div>
+          </div>
+
+          <!-- จ้างเหมาช่วงงาน หรือจ้างเหมาบริการ -->
+          <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="subcontract-type-access" name="access_type[]"
+              value="จ้างเหมาช่วงงาน หรือจ้างเหมาบริการ">
+            <label class="form-check-label" for="subcontract-type-access">จ้างเหมาช่วงงาน หรือจ้างเหมาบริการ</label>
+          </div>
+          <input type="text" name="subcontract-type-access-detail" id="subcontract-type-access-detail"
+            class="form-control mt-2" placeholder="ระบุประเภทงาน" style="display: none;">
+
+          <!-- ฝึกงาน -->
+          <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="internship-type-access" name="access_type[]"
+              value="ฝึกงาน">
+            <label class="form-check-label" for="internship-type-access">ฝึกงาน</label>
+          </div>
+          <input type="text" id="internship-type-access-detail" name="internship_type_access_detail"
+            class="form-control mt-2" placeholder="ระบุหลักสูตรที่ต้องฝึกงาน" style="display: none;">
+
+          <!--  จัดให้มีอุปกรณ์หรือสิ่งอำนวยความสะดวก -->
+          <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="facilities-type-access" name="access_type[]"
+              value="จัดให้มีอุปกรณ์หรือสิ่งอำนวยความสะดวก">
+            <label class="form-check-label" for="facilities-type-access">จัดให้มีอุปกรณ์หรือสิ่งอำนวยความสะดวก</label>
+          </div>
+          <input type="text" id="facilities-type-access-detail" name="facilities_type_access_detail"
+            class="form-control mt-2" placeholder="ระบุอุปกรณ์หรือสิ่งอำนวยความสะดวก" style="display: none;">
+
+          <!-- ล่ามภาษามือ -->
+          <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="interpreter-type-access" name="access_type[]"
+              value="ล่ามภาษามือ">
+            <label class="form-check-label" for="interpreter-type-access">ล่ามภาษามือ</label>
+          </div>
+          <input type="text" id="interpreter-type-access-detail" name="interpreter_type_access_detail"
+            class="form-control mt-2" placeholder="ระบุรายละเอียดล่ามภาษามือ" style="display: none;">
+
+          <!-- ให้ความช่วยเหลืออื่นใด -->
+          <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="other-type-access" name="access_type[]"
+              value="ให้ความช่วยเหลืออื่นใด">
+            <label class="form-check-label" for="other-type-access">ให้ความช่วยเหลืออื่นใด</label>
+          </div>
+          <input type="text" id="other-type-access-detail" name="other_type_access_detail" class="form-control mt-2"
+            placeholder="ระบุรายละเอียด" style="display: none;">
+
+          <!-- ระยะเวลาการขอใช้สิทธิ 1 ปี / เดือน -->
+          <h6 class="pt-3 pb-1">ระยะเวลาการขอใช้สิทธิ 1 ปี / เดือน</h6>
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <label for="access-start-date" class="form-label fw-medium">ตั้งแต่วันที่</label>
+              <div class="bg-light rounded">
+                <div class="text-start">
+                  <span>วันที่ </span>
+                  <input type="number" id="access-start-day" name="access_start_day" min="1" max="31"
+                    class="text-center date-custom-input" style="width: 75px;" placeholder="วัน">
+                  <span> เดือน </span>
+                  <select id="access-start-month" name="access_start_month" class="text-center date-custom-input"
+                    style="width: 120px;">
+                    <option value="">เลือก</option>
+                    <option value="มกราคม">มกราคม</option>
+                    <option value="กุมภาพันธ์">กุมภาพันธ์</option>
+                    <option value="มีนาคม">มีนาคม</option>
+                    <option value="เมษายน">เมษายน</option>
+                    <option value="พฤษภาคม">พฤษภาคม</option>
+                    <option value="มิถุนายน">มิถุนายน</option>
+                    <option value="กรกฎาคม">กรกฎาคม</option>
+                    <option value="สิงหาคม">สิงหาคม</option>
+                    <option value="กันยายน">กันยายน</option>
+                    <option value="ตุลาคม">ตุลาคม</option>
+                    <option value="พฤศจิกายน">พฤศจิกายน</option>
+                    <option value="ธันวาคม">ธันวาคม</option>
+                  </select>
+                  <span> พ.ศ. </span>
+                  <input type="number" id="access-start-year-thai" name="access_start_year" min="2500" max="2600"
+                    class="text-center date-custom-input" style="width: 85px;" placeholder="พ.ศ.">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <label for="access-end-date" class="form-label fw-medium">ถึงวันที่</label>
+              <div class="bg-light rounded">
+                <div class="text-start">
+                  <span>วันที่ </span>
+                  <input type="number" id="access-end-day" name="access_end_day" min="1" max="31"
+                    class="text-center date-custom-input" style="width: 75px;" placeholder="วัน">
+                  <span> เดือน </span>
+                  <select id="access-end-month" name="access_end_month" class="text-center date-custom-input"
+                    style="width: 120px;">
+                    <option value="">เลือก</option>
+                    <option value="มกราคม">มกราคม</option>
+                    <option value="กุมภาพันธ์">กุมภาพันธ์</option>
+                    <option value="มีนาคม">มีนาคม</option>
+                    <option value="เมษายน">เมษายน</option>
+                    <option value="พฤษภาคม">พฤษภาคม</option>
+                    <option value="มิถุนายน">มิถุนายน</option>
+                    <option value="กรกฎาคม">กรกฎาคม</option>
+                    <option value="สิงหาคม">สิงหาคม</option>
+                    <option value="กันยายน">กันยายน</option>
+                    <option value="ตุลาคม">ตุลาคม</option>
+                    <option value="พฤศจิกายน">พฤศจิกายน</option>
+                    <option value="ธันวาคม">ธันวาคม</option>
+                  </select>
+                  <span> พ.ศ. </span>
+                  <input type="number" id="access-end-year-thai" name="access_end_year" min="2500" max="2600"
+                    class="text-center date-custom-input" style="width: 85px;" placeholder="พ.ศ.">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center py-4">
+            <p class="d-inline-block text-start m-0">
+              <span>Ⓧ ยินยอมให้เปิดเผยข้อมูลตามพระราชบัญญัติข้อมูลข่าวสารของราชการ พ.ศ. 2540</span><br>
+              <span>Ⓧ ยินยอมให้เปิดเผยข้อมูลตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ.2562 (PDPA)</span><br>
+            </p>
+            <br>
+            <span><b>ข้าพเจ้าขอรับรองว่าข้อมูลการขึ้นทะเบียนขอใช้สิทธิตามมาตรา 35 เป็นความจริงทุกประการ</b></span>
+          </div>
+
+          <!-- ลงชื่อผู้ขึ้นทะเบียนขอใช้สิทธิ -->
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label class="form-label fw-medium" for="applicant-signature">ลงชื่อผู้ขึ้นทะเบียนขอใช้สิทธิ</label>
+                <input type="text" id="applicant-signature" name="applicant_signature" class="form-control"
+                  placeholder="ระบุชื่อ-สกุล ผู้ขึ้นทะเบียนขอใช้สิทธิ">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <label class="form-label fw-medium">วันที่ลงชื่อผู้ขึ้นทะเบียนขอใช้สิทธิ</label>
+              <div class="bg-light rounded">
+                <div class="text-start">
+                  <span>วันที่ </span>
+                  <input type="number" id="applicant-signature-day" name="applicant_signature_day" min="1" max="31"
+                    class="text-center date-custom-input" style="width: 75px;" placeholder="วัน">
+                  <span> เดือน </span>
+                  <select id="applicant-signature-month" name="applicant_signature_month"
+                    class="text-center date-custom-input" style="width: 120px;">
+                    <option value="">เลือก</option>
+                    <option value="มกราคม">มกราคม</option>
+                    <option value="กุมภาพันธ์">กุมภาพันธ์</option>
+                    <option value="มีนาคม">มีนาคม</option>
+                    <option value="เมษายน">เมษายน</option>
+                    <option value="พฤษภาคม">พฤษภาคม</option>
+                    <option value="มิถุนายน">มิถุนายน</option>
+                    <option value="กรกฎาคม">กรกฎาคม</option>
+                    <option value="สิงหาคม">สิงหาคม</option>
+                    <option value="กันยายน">กันยายน</option>
+                    <option value="ตุลาคม">ตุลาคม</option>
+                    <option value="พฤศจิกายน">พฤศจิกายน</option>
+                    <option value="ธันวาคม">ธันวาคม</option>
+                  </select>
+                  <span> พ.ศ. </span>
+                  <input type="number" id="applicant-signature-year-thai" name="applicant_signature_year" min="2500"
+                    max="2600" class="text-center date-custom-input" style="width: 85px;" placeholder="พ.ศ.">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ส่วนที่ 4: หนังสือยืนยันการไม่ใช้สิทธิซ้ำ -->
+        <div class="form-section">
+          <h2 class="section-title mb-2">ส่วนที่ 4 หนังสือยืนยันการไม่ใช้สิทธิซ้ำ</h2>
+
+          <!-- เขียนที่ -->
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-6 mt-2">
+                <label class="form-label fw-medium" for="written-at">เขียนที่</label>
+                <input type="text" id="written-at" name="written_at" class="form-control" placeholder="ระบุสถานที่"
+                  value="มูลนิธิพระมหาไถ่เพื่อการพัฒนาคนพิการ">
+              </div>
+              <div class="col-md-6 mt-2">
+                <label class="form-label fw-medium">วันที่เขียนหนังสือ</label>
+                <div class="bg-light rounded">
+                  <div class="text-start">
+                    <span>วันที่ </span>
+                    <input type="number" id="written-day" name="written_day" min="1" max="31"
+                      class="text-center date-custom-input" style="width: 75px;" placeholder="วัน">
+                    <span> เดือน </span>
+                    <select id="written-month" name="written_month" class="text-center date-custom-input"
+                      style="width: 120px;">
+                      <option value="">เลือก</option>
+                      <option value="มกราคม">มกราคม</option>
+                      <option value="กุมภาพันธ์">กุมภาพันธ์</option>
+                      <option value="มีนาคม">มีนาคม</option>
+                      <option value="เมษายน">เมษายน</option>
+                      <option value="พฤษภาคม">พฤษภาคม</option>
+                      <option value="มิถุนายน">มิถุนายน</option>
+                      <option value="กรกฎาคม">กรกฎาคม</option>
+                      <option value="สิงหาคม">สิงหาคม</option>
+                      <option value="กันยายน">กันยายน</option>
+                      <option value="ตุลาคม">ตุลาคม</option>
+                      <option value="พฤศจิกายน">พฤศจิกายน</option>
+                      <option value="ธันวาคม">ธันวาคม</option>
+                    </select>
+                    <span> พ.ศ. </span>
+                    <input type="number" id="written-year-thai" name="written_year" min="2500" max="2600"
+                      class="text-center date-custom-input" style="width: 85px;" placeholder="พ.ศ.">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- โดยหนังสือฉบับนี้ ข้าพเจ้า -->
+          <div class="mb-3">
+            <label class="form-label fw-medium" for="confirm-name-no-duplicate">โดยหนังสือฉบับนี้ ข้าพเจ้า</label>
+            <input type="text" id="confirm-name-no-duplicate" name="confirm_name_no_duplicate" class="form-control"
+              placeholder="ระบุชื่อ-สกุล ผู้ขึ้นทะเบียนขอใช้สิทธิ">
+          </div>
+
+          <!-- อายุ สัญชาติ -->
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label fw-medium" for="confirm-age-no-duplicate">อายุ (ปี)</label>
+              <input type="number" id="confirm-age-no-duplicate" name="confirm_age_no_duplicate" class="form-control"
+                min="0" max="150" placeholder="ระบุอายุ">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-medium" for="confirm-nationality-no-duplicate">สัญชาติ</label>
+              <input type="text" id="confirm-nationality-no-duplicate" name="confirm_nationality_no_duplicate"
+                class="form-control" placeholder="ระบุสัญชาติ">
+            </div>
+          </div>
+
+          <!-- บัตรประจำตัวคนพิการเลขที่ -->
+          <div class="mb-3">
+            <label class="form-label fw-medium"
+              for="confirm-disability-card-no-duplicate">บัตรประจำตัวคนพิการเลขที่</label>
+            <input type="number" id="confirm-disability-card-no-duplicate" name="confirm_disability_card_no_duplicate"
+              class="form-control" maxlength="13" placeholder="ระบุเลขบัตรประจำตัวคนพิการ">
+          </div>
+
+          <!-- ข้อมูลต่างๆ-->
+          <div class="row mb-3">
+
+            <!-- ประเภทความพิการ -->
+            <div class="col-md-6">
+              <label class="form-label fw-medium" for="confirm-disability-type-no-duplicate">ประเภทความพิการ</label>
+              <input type="text" id="confirm-disability-type-no-duplicate" name="confirm_disability_type_no_duplicate"
+                class="form-control" placeholder="ระบุประเภทความพิการ">
+            </div>
+
+            <!-- เบอร์โทรศัพท์ -->
+            <div class="col-md-6">
+              <label class="form-label fw-medium" for="confirm-phone-no-duplicate">เบอร์โทรศัพท์</label>
+              <input type="tel" id="confirm-phone-no-duplicate" name="confirm_phone_no_duplicate" class="form-control"
+                placeholder="ระบุเบอร์โทรศัพท์">
+            </div>
+
+            <!-- บ้านเลขที่ -->
+            <div class="col-md-6 mt-3">
+              <label class="form-label fw-medium" for="confirm-house-no-no-duplicate">บ้านเลขที่</label>
+              <input type="text" id="confirm-house-no-no-duplicate" name="confirm_house_no_no_duplicate"
+                class="form-control" placeholder="ระบุบ้านเลขที่">
+            </div>
+
+            <!-- ชื่อ-นามสกุล ผู้ดูแล (ถ้ามี) -->
+            <div class="col-md-6 mt-3">
+              <label class="form-label fw-medium" for="confirm-caregiver-name-no-duplicate">ชื่อ-นามสกุล ผู้ดูแล
+                (ถ้ามี)</label>
+              <input type="text" id="confirm-caregiver-name-no-duplicate" name="confirm_caregiver_name_no_duplicate"
+                class="form-control" placeholder="ระบุชื่อ-สกุล ผู้ดูแล">
+            </div>
+
+            <!-- บัตรประจำตัวประชาชนเลขที่ -->
+            <div class="col-md-6 mt-3">
+              <label class="form-label fw-medium" for="confirm-id-card-no-duplicate">บัตรประจำตัวประชาชนเลขที่</label>
+              <input type="number" id="confirm-id-card-no-duplicate" name="confirm_id_card_no_duplicate"
+                class="form-control" maxlength="13" placeholder="ระบุเลขบัตรประจำตัวประชาชน">
+            </div>
+
+            <!-- บ้านเลขที่ -->
+            <div class="col-md-6 mt-3">
+              <label class="form-label fw-medium" for="confirm-caregiver-house-no-no-duplicate">บ้านเลขที่ ผู้ดูแล
+                (ถ้ามี)</label>
+              <input type="text" id="confirm-caregiver-house-no-no-duplicate"
+                name="confirm_caregiver_house_no_no_duplicate" class="form-control"
+                placeholder="ระบุบ้านเลขที่ ผู้ดูแล">
+            </div>
+
+            <!-- ในปี 2568 ข้าพเจ้า -->
+            <div class="col-md-6 mt-3">
+              <label class="form-label fw-medium" for="confirm-in-year-no-duplicate">ในปี 2568 ข้าพเจ้า</label>
+              <input type="text" id="confirm-in-year-no-duplicate" name="confirm_in_year_no_duplicate"
+                class="form-control" placeholder="ระบุข้อมูล" value="ใช้สิทธิตามมาตรา 35">
+            </div>
+
+            <!-- กับบริษัท -->
+            <div class="col-md-6 mt-3">
+              <label class="form-label fw-medium" for="confirm-with-company-no-duplicate">กับบริษัท</label>
+              <input type="text" id="confirm-with-company-no-duplicate" name="confirm_with_company_no_duplicate"
+                class="form-control" placeholder="ระบุชื่อบริษัท">
+            </div>
+
+            <!-- ลงชื่อคนพิการ -->
+            <div class="col-md-6 mt-3">
+              <label class="form-label fw-medium" for="confirm-disability-no-duplicate">ลงชื่อคนพิการ</label>
+              <input type="text" id="confirm-disability-no-duplicate" name="confirm_disability_no_duplicate"
+                class="form-control" placeholder="ระบุชื่อ-สกุล คนพิการ">
+            </div>
+
+            <!-- ลงชื่อพยาน/ผู้ดูแล -->
+            <div class="col-md-6 mt-3">
+              <label class="form-label fw-medium"
+                for="confirm-witness-caregiver-no-duplicate">ลงชื่อพยาน/ผู้ดูแล</label>
+              <input type="text" id="confirm-witness-caregiver-no-duplicate"
+                name="confirm_witness_caregiver_no_duplicate" class="form-control"
+                placeholder="ระบุชื่อ-สกุล พยาน/ผู้ดูแล" value="นางสาวราตรี แย้มมีเชาว์">
+            </div>
+          </div>
+
+          <h6 class="text-center my-5">หนังสือฉบับนี้ได้ผ่านการตรวจสอบการใช้สิทธิซ้ำซ้อนแล้ว
+            และขอรับรองว่าคนพิการไม่ได้ใช้สิทธิซ้ำซ้อนกับบริษัทใด</h6>
+
+          <!-- ลงชื่อผู้ประสานงาน -->
+          <div class="mt-3">
+            <label class="form-label fw-medium" for="confirm-coordinator-no-duplicate">ลงชื่อผู้ประสานงาน</label>
+            <input type="text" id="confirm-coordinator-no-duplicate" name="confirm_coordinator_no_duplicate"
+              class="form-control" placeholder="ระบุชื่อ-สกุล ผู้ประสานงาน" value="นางสาวพิมพ์ชนก เอี่ยมสอาด">
+          </div>
+        </div>
+
+        <!-- ปุ่มแปลงข้อมูลเป็น PDF และรีเซ็ต -->
+        <div class="row g-3">
+          <div class="col-md-6">
+            <button type="submit" id="submit" class="btn btn-primary px-4 w-100">พิมพ์ / บันทึกเป็น PDF</button>
+          </div>
+          <div class="col-md-6">
+            <button type="reset" class="btn btn-secondary px-4 w-100">รีเซ็ต</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <footer class="pt-2 pb-3 text-center text-white">
+      <p class="mb-0">Developed by <strong>Mr. Anucha Khemthong</strong> | Version 1.0.0 | © 2026</p>
+    </footer>
+  </div>
+
+  <div class="print-only">
+
+    <section class="page">
+      <table width="100%" style="border-collapse: collapse;">
+        <tr>
+          <!-- โลโก้ -->
+          <td width="20%" style="vertical-align: top;">
+            <img src="/img/logo.png" width="120">
+          </td>
+
+          <!-- ชื่อเอกสาร -->
+          <td width="60%" style="vertical-align: middle; text-align: center;">
+            <div style="font-weight: bold; font-size: 27px;">
+              แบบขึ้นทะเบียนขอใช้สิทธิตามมาตรา 35<br>
+              <span style="font-size: 27px;">(คนพิการ/ผู้ดูแลคนพิการ)</span>
+            </div>
+          </td>
+
+          <!-- รหัส + รูป -->
+          <td width="20%" style="vertical-align: top; text-align: right;">
+            <div style="display: inline-block; text-align: center;">
+              <div style="font-size: 19px;">กกจ.พก.1</div>
+
+              <div style="
+                    border: 1px solid #000;
+                    height: 30mm;
+                    width: 25mm;
+                    margin-top: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 20px;
+                  ">
+                รูปถ่าย 1 นิ้ว
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!--  คนพิการขอใช้สิทธิด้วยตนเอง -->
+      <div class="herder-distable">
+        <div id="box-icon-status-distable" style="display: inline-block;">
+          <span class="icon-status-distable">Ｏ</span>
+        </div>
+        <span style="font-weight: bold; font-size: 27px;">&nbsp; คนพิการขอใช้สิทธิด้วยตนเอง</span>
+      </div>
+      
+      <table width="100%" style="border-collapse: collapse;">
+        <colgroup>
+          <col style="width: 3%">
+          <col style="width: 97%">
+        </colgroup>
+
+        <!-- เลขบัตรประจำตัวประชาชน/บัตรประจำตัวคนพิการ -->
+        <tr>
+          <td>
+            1.
+          </td>
+          <td id="print-id-card-distable" class="document-flex">
+            เลขบัตรประจำตัวประชาชน/บัตรประจำตัวคนพิการ
+            <div class="box-card-number-distable">
+              <span class="box-distable"></span>
+              <span class="dash">-</span>
+
+              <span class="box-distable"></span>
+              <span class="box-distable"></span>
+              <span class="box-distable"></span>
+              <span class="box-distable"></span>
+              <span class="dash">-</span>
+
+              <span class="box-distable"></span>
+              <span class="box-distable"></span>
+              <span class="box-distable"></span>
+              <span class="box-distable"></span>
+              <span class="box-distable"></span>
+              <span class="dash">-</span>
+
+              <span class="box-distable"></span>
+              <span class="box-distable"></span>
+              <span class="dash">-</span>
+
+              <span class="box-distable"></span>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ประเภทความพิการ -->
+        <tr>
+          <td>2.</td>
+          <td>
+            ประเภทความพิการ &nbsp;
+            <span class="icon-status-type-distable">Ｏ</span> การเห็น &nbsp;
+            <span class="icon-status-type-distable">Ｏ</span> การได้ยิน &nbsp;
+            <span class="icon-status-type-distable">Ｏ</span> การเคลื่อนไหว &nbsp;
+            <span class="icon-status-type-distable">Ｏ</span> จิตใจ &nbsp;
+            <span class="icon-status-type-distable">Ｏ</span> สติปัญญา &nbsp;
+            <span class="icon-status-type-distable">Ｏ</span> การเรียนรู้ &nbsp;
+            <span class="icon-status-type-distable">Ｏ</span> ออทิสติก &nbsp;
+          </td>
+        </tr>
+
+        <!-- ชื่อ-สกุล -->
+        <tr>
+          <td>3.</td>
+          <td class="document-flex">
+            <div>
+              ชื่อ-สกุล &nbsp;
+              <span class="icon-status-full-name-distable">Ｏ</span>  ด.ช./ด.ญ. &nbsp;
+              <span class="icon-status-full-name-distable">Ｏ</span>  นาย/นาง/นางสาว &nbsp;
+            </div>
+            ชื่อ 
+            <span class="fname-distable document-borders"></span>
+            นามสกุล 
+            <span class="lname-distable document-borders"></span>
+          </td>
+        </tr>
+
+        <!--  ที่อยู่ปัจจุบันที่ติดต่อได -->
+        <tr>
+          <td>4.</td>
+          <td class="document-flex">
+            ที่อยู่ปัจจุบันที่ติดต่อได้ &nbsp;
+            ชื่ออาคาร
+            <span class="building-name-distable document-borders"></span>
+            ชั้นที่
+            <span class="floor-distable document-borders bfnv"></span>
+            เลขที่
+            <span class="number-floor-distable document-borders bfnv"></span>
+            หมู่ที่
+            <span class="village-no-distable document-borders bfnv"></span>         
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="document-flex">
+            ซอย
+            <span class="alley-distable document-borders arsd"></span>
+            ถนน
+            <span class="road-distable document-borders arsd"></span>
+            ตำบล/แขวง
+            <span class="sub-district-distable document-borders arsd"></span>
+            เขต/อำเภอ
+            <span class="district-distable document-borders arsd"></span>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="document-flex">
+            จังหวัด
+            <span class="province-distable document-borders arsd"></span>
+            รหัสไปรษณีย์
+            <span class="postal-code-distable document-borders arsd"></span>
+            โทรศัพท์
+            <span class="phone-distable document-borders arsd"></span>
+            มือถือ
+            <span class="mobile-distable document-borders arsd"></span>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="document-flex">
+            Email
+            <span class="email-distable document-borders"></span>
+            สถานที่ใกล้เคียง
+            <span class="nearby-place-distable document-borders"></span>
+          </td>
+        </tr>
+
+        <!-- วัน / เดือน / ปีเกิด -->
+        <tr>
+          <td>5.</td>
+          <td class="document-flex">
+            วัน / เดือน / ปีเกิด
+            <span class="birth-day-distable document-borders" style="width: 200px;"></span>
+            อายุ
+            <span class="age-distable document-borders" style="width: 50px;"></span>
+            ปี &nbsp; สัญชาติ
+            <span class="nationality-distable document-borders" style="width: 100px;"></span>
+            ศาสนา
+            <span class="religion-distable document-borders" style="width: 100px;"></span>
+          </td>
+        </tr>
+
+        <!-- สถานภาพ -->
+        <tr>
+          <td>6.</td>
+          <td class="document-flex">
+            สถานภาพ &nbsp;
+            <span class="icon-status-marital-distable">Ｏ</span> 1.โสด &nbsp;
+            <span class="icon-status-marital-distable">Ｏ</span> 2.สมรส &nbsp;
+            <span class="icon-status-marital-distable">Ｏ</span> 3.อื่นๆ (ระบุ) &nbsp;
+            <span class="marital-other-distable document-borders" style="width: 350px;"></span>
+          </td>
+        </tr>
+
+        <!--  สำเร็จการศึกษา -->
+        <tr>
+          <td>7.</td>
+          <td class="document-flex">
+            สำเร็จการศึกษา &nbsp;
+            <span class="icon-status-education-distable">Ｏ</span> ต่ำกว่าประถมศึกษา &nbsp;
+            <span class="icon-status-education-distable">Ｏ</span> ประถมศึกษา &nbsp;
+            <span class="icon-status-education-distable">Ｏ</span> มัธยมศึกษาตอนต้น &nbsp;
+            <span class="icon-status-education-distable">Ｏ</span> มัธยมศึกษาตอนปลายหรือเทียบเท่า &nbsp;
+        </tr>
+        <tr>
+          <td></td>
+          <td class="document-flex">
+            <span class="icon-status-education-distable">Ｏ</span> ปริญญาตรี &nbsp;
+            <span class="icon-status-education-distable">Ｏ</span> ปริญญาโทขึ้นไป &nbsp;
+            <span class="icon-status-education-distable">Ｏ</span> อื่นๆ (ระบุ) &nbsp;
+            <span class="education-other-distable document-borders" style="width: 370px;"></span>
+        </tr>
+
+      </table>
+
+      <!--  ผู้ดูแลคนพิการขอใช้สิทธิแทนคนพิการ -->
+      <div class="herder-distable mt-4">
+        <div id="box-icon-status-caregiver" style="display: inline-block;">
+          <span class="icon-status-distable">Ｏ</span>
+        </div>
+        <span style="font-weight: bold; font-size: 27px;">&nbsp; ผู้ดูแลคนพิการขอใช้สิทธิแทนคนพิการ</span>
+      </div>
+
+      <table width="100%" style="border-collapse: collapse;">
+        <colgroup>
+          <col style="width: 3%">
+          <col style="width: 97%">
+        </colgroup>
+
+        <!--  เลขบัตรประจำตัวประชาชน -->
+        <tr>
+          <td>
+            1.
+          </td>
+          <td id="print-id-card-caregiver" style="display: flex; align-items: center;">
+            เลขบัตรประจำตัวประชาชน &nbsp; &nbsp;
+            <div class="box-card-number-distable">
+              <span class="box-caretaker"></span>
+              <span class="dash">-</span>
+
+              <span class="box-caretaker"></span>
+              <span class="box-caretaker"></span>
+              <span class="box-caretaker"></span>
+              <span class="box-caretaker"></span>
+              <span class="dash">-</span>
+
+              <span class="box-caretaker"></span>
+              <span class="box-caretaker"></span>
+              <span class="box-caretaker"></span>
+              <span class="box-caretaker"></span>
+              <span class="box-caretaker"></span>
+
+              <span class="dash">-</span>
+              <span class="box-caretaker"></span>
+              <span class="box-caretaker"></span>
+              <span class="dash">-</span>
+              <span class="box-caretaker"></span>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ชื่อ-สกุล -->
+        <tr>
+          <td>2.</td>
+          <td class="document-flex">
+            <div>
+              ชื่อ-สกุล &nbsp;
+              <span class="icon-status-full-name-caregiver">Ｏ</span>  1.นาย &nbsp;
+              <span class="icon-status-full-name-caregiver">Ｏ</span>  2.นาง &nbsp;
+              <span class="icon-status-full-name-caregiver">Ｏ</span>  3.นางสาว &nbsp;
+            </div>
+            ชื่อ 
+            <span class="fname-caregiver document-borders" style="width: 170px;"></span>
+            นามสกุล 
+            <span class="lname-caregiver document-borders" style="width: 170px;"></span>
+          </td>
+        </tr>
+
+        <!-- ที่อยู่ปัจจุบันที่ติดต่อได้ -->
+        <tr>
+          <td>3.</td>
+          <td class="document-flex">
+            ที่อยู่ปัจจุบันที่ติดต่อได้ &nbsp;
+            ชื่ออาคาร
+            <span class="building-name-caregiver document-borders"></span>
+            ชั้นที่
+            <span class="floor-caregiver document-borders bfnv"></span>
+            เลขที่
+            <span class="number-caregiver document-borders bfnv"></span>
+            หมู่ที่
+            <span class="village-no-caregiver document-borders bfnv"></span>
+          </td>
+        </tr>
+         <tr>
+          <td></td>
+          <td class="document-flex">
+            ซอย
+            <span class="alley-caregiver document-borders arsd"></span>
+            ถนน
+            <span class="road-caregiver document-borders arsd"></span>
+            ตำบล/แขวง
+            <span class="sub-district-caregiver document-borders arsd"></span>
+            เขต/อำเภอ
+            <span class="district-caregiver document-borders arsd"></span>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="document-flex">
+            จังหวัด
+            <span class="province-caregiver document-borders arsd"></span>
+            รหัสไปรษณีย์
+            <span class="postal-code-caregiver document-borders arsd"></span>
+            โทรศัพท์
+            <span class="phone-caregiver document-borders arsd"></span>
+            มือถือ
+            <span class="mobile-caregiver document-borders arsd"></span>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="document-flex">
+            Email
+            <span class="email-caregiver document-borders"></span>
+            สถานที่ใกล้เคียง
+            <span class="nearby-place-caregiver document-borders"></span>
+          </td>
+        </tr>
+
+        <!-- วัน / เดือน / ปีเกิด -->
+        <tr>
+          <td>4.</td>
+          <td class="document-flex">
+            วัน / เดือน / ปีเกิด
+            <span class="birth-day-caregiver document-borders" style="width: 200px;"></span>
+            อายุ
+            <span class="age-caregiver document-borders" style="width: 50px;"></span>
+            ปี &nbsp; สัญชาติ
+            <span class="nationality-caregiver document-borders" style="width: 100px;"></span>
+            ศาสนา
+            <span class="religion-caregiver document-borders" style="width: 100px;"></span>
+          </td>
+        </tr>
+
+        <!-- สถานภาพ -->
+        <tr>
+          <td>5.</td>
+          <td class="document-flex">
+            สถานภาพ &nbsp;
+            <span class="icon-status-marital-caregiver">Ｏ</span> 1.โสด &nbsp;
+            <span class="icon-status-marital-caregiver">Ｏ</span> 2.สมรส &nbsp;
+            <span class="icon-status-marital-caregiver">Ｏ</span> 3.อื่นๆ (ระบุ) &nbsp;
+            <span class="marital-other-caregiver document-borders" style="width: 350px;"></span>
+          </td>
+        </tr>
+
+        <!--  สำเร็จการศึกษา -->
+        <tr>
+          <td>6.</td>
+          <td class="document-flex">
+            สำเร็จการศึกษา &nbsp;
+            <span class="icon-status-education-caregiver">Ｏ</span> ต่ำกว่าประถมศึกษา &nbsp;
+            <span class="icon-status-education-caregiver">Ｏ</span> ประถมศึกษา &nbsp;
+            <span class="icon-status-education-caregiver">Ｏ</span> มัธยมศึกษาตอนต้น &nbsp;
+            <span class="icon-status-education-caregiver">Ｏ</span> มัธยมศึกษาตอนปลายหรือเทียบเท่า &nbsp;
+        </tr>
+        <tr>
+          <td></td>
+          <td class="document-flex">
+            <span class="icon-status-education-caregiver">Ｏ</span> ปริญญาตรี &nbsp;
+            <span class="icon-status-education-caregiver">Ｏ</span> ปริญญาโทขึ้นไป &nbsp;
+            <span class="icon-status-education-caregiver">Ｏ</span> อื่นๆ (ระบุ) &nbsp;
+            <span class="education-other-caregiver document-borders" style="width: 370px;"></span>
+        </tr>
+
+        <!--  ใช้สิทธิแทนคนพิการ -->
+        <tr>
+          <td>7.</td>
+          <td class="document-flex">
+            <div>
+              ใช้สิทธิแทนคนพิการ &nbsp;
+              <span class="icon-status-full-name-caregivers">Ｏ</span>  ด.ช./ด.ญ. &nbsp;
+              <span class="icon-status-full-name-caregivers">Ｏ</span>  นาย/นาง/นางสาว &nbsp;
+            </div>
+            ชื่อ 
+            <span class="fname-caregivers document-borders" style="width: 150px;"></span>
+            นามสกุล 
+            <span class="lname-caregivers document-borders" style="width: 150px;"></span>
+          </td>
+        </tr>
+
+        <!-- เลขบัตรประจำตัวประชาชน/บัตรประจำตัวคนพิการ -->
+        <tr>
+          <td>
+            8.
+          </td>
+          <td id="print-id-card-distable" style="display: flex; align-items: center;">
+            เลขบัตรประจำตัวประชาชน/บัตรประจำตัวคนพิการ &nbsp; &nbsp;
+            <div class="box-card-number-distable">
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="dash">-</span>
+
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="dash">-</span>
+
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="dash">-</span>
+
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+              <span class="dash">-</span>
+
+              <span class="box-distable-caregiver" style="width: 26px; height: 29px;"></span>
+            </div>
+          </td>
+        </tr>
+
+        <!--  ความเกี่ยวข้องกับคนพิการ -->
+        <tr>
+          <td>9.</td>
+          <td class="document-flex">
+            ความเกี่ยวข้องกับคนพิการ
+            <span class="relationship-caregiver document-borders" style="width: 530px;"></span>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="page">
+      <div style="text-align: center;">-2-</div>
+
+      <!-- กรณีคนพิการยินยอมให้ผู้ดูแลคนพิการใช้สิทธิตามมาตรา 35 แทน -->
+      <div class="mt-1">
+        <span style="font-weight: bold; font-size: 27px;">กรณีคนพิการยินยอมให้ผู้ดูแลคนพิการใช้สิทธิตามมาตรา 35 แทน</span>
+      </div>
+
+      <table width="100%" style="border-collapse: collapse;">
+        <!-- ข้าพเจ้า -->
+        <tr>
+          <td class="document-flex" style="padding-left: 60px;">
+            ข้าพเจ้า
+            <span class="disability-fullname document-borders" style="width: 220px;"></span>
+            ถือบัตรประจำตัวคนพิการเลขที่
+            <span class="disability-card-no document-borders" style="width: 220px;"></span>
+          </td>
+        </tr>
+
+        <!-- ยินยอมให้ -->
+        <tr>
+          <td class="document-flex">
+            ยินยอมให้
+            <span class="caregiver-fullname document-borders" style="width: 370px;"></span>
+            ซึ่งเป็นผู้ดูแลข้าพเจ้าและมีชื่อในบัตรประจำตัวคนพิการ
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ดำเนินการขึ้นทะเบียนขอใช้สิทธิตามมาตรา 35 แทนข้าพเจ้า เนื่องจาก 
+          </td>
+        </tr>
+
+        <!-- เป็นผู้เยาว์ (อายุไม่เกิน 20 ปีบริบูรณ์)  -->
+        <tr>
+          <td>
+            <span class="icon-status-disability-consent size-icon-a">Ｏ</span>  เป็นผู้เยาว์ (อายุไม่เกิน 20 ปีบริบูรณ์) &nbsp;&nbsp;
+            <span class="icon-status-disability-consent size-icon-a">Ｏ</span>  เป็นผู้สูงอายุ (อายุ 70 ปีขึ้นไป) &nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="icon-status-disability-consent size-icon-a">Ｏ</span>  เป็นคนไร้ความสามารถ/เสมือนไร้ความสามารถ (พิจารณาจากคำสั่งศาล)  &nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="icon-status-disability-consent size-icon-a">Ｏ</span>  เป็นคนพิการซึ่งมีสภาพความพิการถึงขั้นที่ไม่สามารถประกอบอาชีพได้ โดยมีหนังสือรับรองจากกรมการส่งเสริมและ 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            พัฒนาคุณภาพชีวิตคนพิการ หรือสำนักงานพัฒนาสังคมและความมั่นคงของมนุษย์จังหวัด หรือศูนย์บริการคนพิการระดับจังหวัด 
+          </td>
+        </tr>
+
+        <!-- ลงชื่อคนพิการ -->
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 80px; padding-top: 35px;">
+            ลงชื่อ
+            <span class="disability-signature document-borders" style="width: 250px;"></span>
+            คนพิการ
+          </td>
+        </tr>
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 115px;">
+            (  
+            <span class="disability-fullname-2 document-borders" style="width: 250px;"></span>
+            )
+          </td>
+        </tr>
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 110px; padding-bottom: 15px;">
+            วันที่
+            <span class="disability-sign-date document-borders" style="width: 70px;"></span>
+            เดือน
+            <span class="disability-sign-month document-borders" style="width: 70px;"></span>
+            พ.ศ.
+            <span class="disability-sign-year document-borders" style="width: 70px;"></span>
+          </td>
+        </tr>
+      </table>
+
+      <!-- ประเภทการขอใช้สิทธิตามมาตรา 35 -->
+      <div>
+        <span style="font-weight: bold; font-size: 27px;">ประเภทการขอใช้สิทธิตามมาตรา 35</span>
+      </div>
+
+      <table width="100%" style="border-collapse: collapse;">
+        <colgroup>
+          <col style="width: 4%">
+          <col style="width: 96%">
+        </colgroup>
+        <!-- สัมปทาน -->
+        <tr>
+          <td>
+            <span class="icon-status-disability-rights size-icon-a">Ｏ</span>
+          </td>
+          <td class="document-flex">
+            สัมปทาน ระบุประเภทสัมปทาน
+            <span class="disability-rights-type checkbox-group-disability-rights document-borders" style="width: 500px; display: flex; justify-content: left;"></span>
+          </td>
+        </tr>
+
+        <!-- สถานที่จำหน่ายสินค้าหรือบริการ -->
+        <tr>
+          <td>
+            <span class="icon-status-disability-rights size-icon-a">Ｏ</span>
+          </td>
+          <td class="document-flex">
+            สถานที่จำหน่ายสินค้าหรือบริการ ระบุขนาดพื้นที่ที่ต้องการใช้ประกอบกิจการ 
+            <span class="disability-rights-place checkbox-group-disability-rights document-borders" style="width: 225px;"></span> ตารางเมตร
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="document-flex">
+            ระบุประเภทกิจการ
+            <span class="disability-rights-business checkbox-group-disability-rights document-borders" style="width: 550px; display: flex; justify-content: left;"></span>
+          </td>
+        </tr>
+
+        <!-- จ้างเหมาช่วงงาน หรือจ้างเหมาบริการ ระบุประเภทงาน -->
+        <tr>
+          <td>
+            <span class="icon-status-disability-rights size-icon-a">Ｏ</span>
+          </td>
+          <td class="document-flex">
+            จ้างเหมาช่วงงาน หรือจ้างเหมาบริการ ระบุประเภทงาน
+            <span class="disability-rights-contract-work checkbox-group-disability-rights document-borders" style="width: 385px; display: flex; justify-content: left;"></span>
+          </td>
+        </tr>
+
+        <!--  ฝึกงาน ระบุหลักสูตรที่ต้องฝึกงาน -->
+        <tr>
+          <td>
+            <span class="icon-status-disability-rights size-icon-a">Ｏ</span>
+          </td>
+          <td class="document-flex">
+            ฝึกงาน ระบุหลักสูตรที่ต้องฝึกงาน
+            <span class="disability-rights-internship-course checkbox-group-disability-rights document-borders" style="width: 485px; display: flex; justify-content: left;"></span>
+          </td>
+        </tr>
+
+        <!-- จัดให้มีอุปกรณ์หรือสิ่งอำนวยความสะดวกระบบ-->
+        <tr>
+          <td>
+            <span class="icon-status-disability-rights size-icon-a">Ｏ</span>
+          </td>
+          <td class="document-flex">
+            จัดให้มีอุปกรณ์หรือสิ่งอำนวยความสะดวกระบบ
+            <span class="disability-rights-equipment checkbox-group-disability-rights document-borders" style="width: 425px; display: flex; justify-content: left;"></span>
+          </td>
+        </tr>
+
+        <!-- ล่ามภาษามือ -->
+        <tr>
+          <td>
+            <span class="icon-status-disability-rights size-icon-a">Ｏ</span>
+          </td>
+          <td class="document-flex">
+            ล่ามภาษามือ
+            <span class="disability-rights-sign-language-interpreter checkbox-group-disability-rights document-borders" style="width: 585px; display: flex; justify-content: left;"></span>
+          </td>
+        </tr>
+
+        <!-- ให้ความช่วยเหลืออื่นใด ระบุ -->
+        <tr>
+          <td>
+            <span class="icon-status-disability-rights size-icon-a">Ｏ</span>
+          </td>
+          <td class="document-flex">
+            ให้ความช่วยเหลืออื่นใด ระบุ
+            <span class="disability-rights-other checkbox-group-disability-rights document-borders" style="width: 515px; display: flex; justify-content: left;"></span>
+          </td>
+        </tr>
+      </table>
+
+      <!-- ระยะเวลาการขอใช้สิทธ -->
+      <div style="font-size: 19px; font-weight: bold; margin-top: 20px; margin-bottom: 20px;">
+        ระยะเวลาการขอใช้สิทธิ
+        <span class="disability-rights-duration document-borders" style="width: 50px;">1</span>
+        ปี / เดือน (ตั้งแต่วันที่
+        <span class="disability-rights-start-date document-borders" style="width: 300px;"></span>
+        )
+      </div>
+
+      <table width="100%" style="border-collapse: collapse;">
+        <colgroup>
+          <col style="width: 15%">
+          <col style="width: 85%">
+        </colgroup>
+
+        <tr>
+          <td style="text-align: right; font-size: 19px; font-weight: bold;">
+            ⊗
+          </td>
+          <td style="font-size: 19px; font-weight: bold;">
+            &nbsp; ยินยอมให้เปิดเผยข้อมูลตามพระราชบัญญัติข้อมูลข่าวสารของราชการ พ.ศ. 2540 
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: right; font-size: 19px; font-weight: bold;">
+            ⊗
+          </td>
+          <td style="font-size: 19px; font-weight: bold;">
+            &nbsp; ยินยอมให้เปิดเผยข้อมูลตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ.2562 (PDPA) 
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td style="font-size: 19px; font-weight: bold; padding-top: 10px; padding-top: 10px; text-align: justify;">
+            &nbsp; ข้าพเจ้าขอรับรองว่าข้อมูลการขึ้นทะเบียนขอใช้สิทธิตามมาตรา 35 เป็นความจริงทุกประการ 
+          </td>
+        </tr>
+
+        <!-- ลงชื่อผู้ขึ้นทะเบียนขอใช้สิทธิ -->
+        <tr>
+          <td></td>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 0px; padding-top: 35px;">
+            ลงชื่อ
+            <span class="registered-persons-signature document-borders" style="width: 250px;"></span>
+            ผู้ขึ้นทะเบียนขอใช้สิทธิ
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 100px;">
+            (  
+            <span class="registered-persons-fullname-2 document-borders" style="width: 250px;"></span>
+            )
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 100px;">
+            วันที่
+            <span class="registered-persons-sign-date document-borders" style="width: 70px;"></span>
+            เดือน
+            <span class="registered-persons-sign-month document-borders" style="width: 70px;"></span>
+            พ.ศ.
+            <span class="registered-persons-sign-year document-borders" style="width: 70px;"></span>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="page">
+      <div style="text-align: center; font-size: 28px; font-weight: bold;">
+        หนังสือยืนยันการไม่ใช้สิทธิซ้ำ
+      </div>
+
+      <table width="100%" style="border-collapse: collapse; margin-top: 5px;">
+        <!-- เขียนที่  -->
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right;">
+            เขียนที่
+            <span class="written-place document-borders" style="width: 250px;"></span>
+          </td>
+        </tr>
+
+        <!-- วันที่ เดือน พ.ศ. -->
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right;">
+            วันที่
+            <span class="no-duplicate-rights-sign-date document-borders" style="width: 70px;"></span>
+            เดือน
+            <span class="no-duplicate-rights-sign-month document-borders" style="width: 70px;"></span>
+            พ.ศ.
+            <span class="no-duplicate-rights-sign-year document-borders" style="width: 70px;"></span>
+          </td>
+        </tr>
+
+        <!-- โดยหนังสือฉบับน -->
+        <tr>
+          <td class="document-flex">
+            โดยหนังสือฉบับนี้ ข้าพเจ้า
+            <span class="no-duplicate-rights-fullname document-borders" style="width: 300px;"></span>
+            อายุ
+            <span class="no-duplicate-rights-age document-borders" style="width: 50px;"></span>
+            ปี สัญชาติ
+            <span class="no-duplicate-rights-nationality document-borders" style="width: 100px;"></span>
+          </td>
+        </tr>
+
+        <!-- บัตรประจำตัวคนพิการเลขที่ -->
+        <tr>
+          <td class="document-flex">
+            บัตรประจำตัวคนพิการเลขที่
+            <span class="no-duplicate-rights-disability-card-no document-borders" style="width: 100px;"></span>
+            ประเภทความพิการ
+            <span class="no-duplicate-rights-disability-type document-borders" style="width: 200px;"></span>
+            โทร
+            <span class="no-duplicate-rights-phone document-borders" style="width: 120px;"></span>
+          </td>
+        </tr>
+
+        <!-- บ้านเลขที่ -->
+        <tr>
+          <td class="document-flex">
+            บ้านเลขที่
+            <span class="no-duplicate-rights-house-no document-borders" style="width: 630px;"></span>
+          </td>
+        </tr>
+
+        <!-- ชื่อ-นามสกุล ผู้ดูแล (ถ้ามี) -->
+        <tr>
+          <td class="document-flex">
+            ชื่อ-นามสกุล ผู้ดูแล (ถ้ามี)
+            <span class="no-duplicate-rights-caregiver-fullname document-borders" style="width: 560px;"></span>
+          </td>
+        </tr>
+
+        <!-- บัตรประจำตัวประชาชนเลขที่ -->
+        <tr>
+          <td class="document-flex">
+            บัตรประจำตัวประชาชนเลขที่
+            <span class="no-duplicate-rights-id-card-no document-borders" style="width: 540px;"></span>
+          </td>
+        </tr>
+
+        <!-- บ้านเลขที่ -->
+        <tr>
+          <td class="document-flex">
+            บ้านเลขที่
+            <span class="no-duplicate-rights-house-nos document-borders" style="width: 630px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-top: 30px;">
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ข้าพเจ้าขอยืนยันข้อมูลการใช้สิทธิ ตามมาตรา 33 หรือ มาตรา 35 แห่ง พรบ.ส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ ของ
+ข้าพเจ้า ดังนี้  
+          </td>
+        </tr>
+
+        <!-- ในปี 2568 ข้าพเจ้า -->
+        <tr>
+          <td class="document-flex">
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        ในปี 2568 ข้าพเจ้า
+            <span class="no-duplicate-rights-year-2023 document-borders" style="width: 130px;"></span>
+            กับบริษัท
+            <span class="no-duplicate-rights-company-2023 document-borders" style="width: 320px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            โดยข้าพเจ้าจะดำเนินการให้การใช้สิทธิข้างต้นสิ้นสุด/ หมดสภาพลงภายในเดือนธันวาคม 2568 และ 
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: justify; text-justify: inter-word;">
+            ในปี พ.ศ. 2569 ข้าพเจ้าขอยืนยันว่า หากได้ใช้สิทธิใน มาตรา 33 หรือมาตรา 35 สิทธิใดสิทธิหนึ่งกับบริษัทในโครงการ “สร้างโอกาส
+งานเชิงสังคมและสนับสนุนการประกอบอาชีพคนพิการ” แล้ว จะไม่ใช้สิทธิซ้ำกับหน่วยงานอื่นอีกโดยเด็ดขาด หากเกิดกรณีที่ข้าพเจ้าใช้
+สิทธิซ้ำในปี 2569 ไม่ว่าด้วยสาเหตุใด ข้าพเจ้าตกลงยืนยันเลือกใช้สิทธิกับบริษัทในโครงการเท่านั้น และตกลงยกเลิกการใช้สิทธิกับ
+หน่วยงานอื่นทั้งหมดในทันที หากปรากฏในภายหลังว่าข้าพเจ้าได้ให้การรับรองข้อความอันเป็นเท็จหรือข้าพเจ้าได้ใช้สิทธิซ้ำ ข้าพเจ้า
+ยินยอมให้ดำเนินคดีตามกฎหมาย และรับผิดชอบต่อความเสียหายทั้งหมดที่อาจเกิดขึ้นแก่ผู้เกี่ยวข้องทุกฝ่าย พร้อมนี้ข้าพเจ้ายินยอมให้
+มูลนิธิพระมหาไถ่เพื่อการพัฒนาคนพิการ/หน่วยงาน ตรวจสอบสถานะและข้อมูลการขึ้นทะเบียนประกันสังคมแทนข้าพเจ้า และยินยอม
+ให้ประกันสังคมเปิดเผยข้อมูลของข้าพเจ้าได้ 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            หนังสือยืนยันการไม่ใช้สิทธิซ้ำฉบับนี้ ทำขึ้นโดยข้าพเจ้าได้ทราบและเข้าใจข้อความตลอดดีแล้ว พร้อมได้ตรวจสอบความถูกต้อง
+ครบถ้วน เป็นไปตามเจตนาของข้าพเจ้า จึงได้ลงลายมือชื่อไว้เป็นสำคัญต่อหน้าพยาน    
+          </td>
+        </tr>
+
+        <!-- ลงชื่อคนพิการ -->
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 80px; padding-top: 15px;">
+            ลงชื่อ
+            <span class="disabilities-page-3-signature document-borders" style="width: 250px;"></span>
+            คนพิการ
+          </td>
+        </tr>
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 120px;">
+            (  
+            <span class="disabilities-page-3-fullname-2 document-borders" style="width: 250px;"></span>
+            )
+          </td>
+        </tr>
+
+        <!-- ลงชื่อพยาน -->
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 60px; padding-top: 15px;">
+            ลงชื่อ
+            <span class="witness-signature document-borders" style="width: 250px;"></span>
+            พยาน/ผู้ดูแล
+          </td>
+        </tr>
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 70px;">
+            (  
+            <span class="witness-fullname-2 document-borders" style="width: 250px;"></span>
+            ) ตัวบรรจง
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 40px 0; font-size: 20px; font-weight: bold; text-align: center;">
+            หนังสือฉบับนี้ได้ผ่านการตรวจสอบการใช้สิทธิซ้ำซ้อนแล้ว และขอรับรองว่าคนพิการไม่ได้ใช้สิทธิซ้ำซ้อนกับบริษัทใด
+          </td>
+        </tr>
+
+        <!-- ลงชื่อผู้ประสานงาน -->
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 140px;">
+            ลงชื่อ
+            <span class="coordinator-signature document-borders" style="width: 250px;"></span>
+            ผู้ประสานงาน
+          </td>
+        </tr>
+        <tr>
+          <td style="display: flex; align-items: center; justify-content: right; padding-right: 200px;">
+            (  
+            <span class="coordinator-fullname-2 document-borders" style="width: 250px;"></span>
+            )
+          </td>
+        </tr>
+
+      </table>
+    </section>
+
+  </div>
+
+  <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+
+</html>
