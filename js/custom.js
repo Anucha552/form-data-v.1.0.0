@@ -526,15 +526,15 @@ document.getElementById("submit").addEventListener("click", function (event) {
     return;
   }
 
-  // const ok = confirm(
-  //   "ระบบจะเปิดหน้าต่างพิมพ์เอกสาร\n\n" +
-  //     'เพื่อให้เอกสารแสดงผลถูกต้อง กรุณาปิดตัวเลือก "Headers and footers"\n' +
-  //     "ในหน้าต่างพิมพ์ ก่อนกด Print หรือ Save as PDF"
-  // );
+  const ok = confirm(
+    "ระบบจะเปิดหน้าต่างพิมพ์เอกสาร\n\n" +
+      'เพื่อให้เอกสารแสดงผลถูกต้อง กรุณาปิดตัวเลือก "Headers and footers"\n' +
+      "ในหน้าต่างพิมพ์ ก่อนกด Print หรือ Save as PDF"
+  );
 
-  // if (!ok) {
-  //   return;
-  // }
+  if (!ok) {
+    return;
+  }
 
   // สร้าง PDF สำหรับพิมพ์
   generatePrintPDF();
