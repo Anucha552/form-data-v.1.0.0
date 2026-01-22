@@ -506,14 +506,52 @@ function generatePrintPDF() {
       data[key] = value;
     }
   }
-  
-  console.log(data);
 
   // สร้างข้อมูลให้กับ PDF สำหรับพิมพ์
   createDataForPDF(data);
 
   // เรียกใช้ฟังก์ชันพิมพ์เอกสาร
-  window.print();
+  async function printPage() {
+    try {
+      // โหลด fonts ทั้งหมดที่จำเป็น
+      await Promise.all([
+        document.fonts.load('400 18px "TH Sarabun New"'),
+        document.fonts.load('700 18px "TH Sarabun New"'),
+        document.fonts.load('400 18px "Sarabun"'),
+        document.fonts.load('700 18px "Sarabun"')
+      ]);
+
+      // รอให้ fonts พร้อมใช้งาน
+      await document.fonts.ready;
+
+      // ตรวจสอบว่า fonts โหลดเสร็จจริงๆ
+      const fonts = ['TH Sarabun New', 'Sarabun'];
+      for (const fontFamily of fonts) {
+        if (!document.fonts.check(`16px "${fontFamily}"`)) {
+          console.warn(`Font ${fontFamily} may not be loaded`);
+        }
+      }
+
+      // รอเพิ่มเพื่อให้ browser render fonts เสร็จสมบูรณ์
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // บังคับ reflow หลายรอบเพื่อให้แน่ใจว่า fonts render แล้ว
+      document.body.offsetHeight;
+      requestAnimationFrame(() => {
+        document.body.offsetHeight;
+        requestAnimationFrame(() => {
+          window.print();
+        });
+      });
+    } catch (error) {
+      console.warn('Font loading warning:', error);
+      // หาก fonts โหลดไม่สำเร็จ ให้รอแล้วพิมพ์ตามปกติ
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      window.print();
+    }
+  }
+  printPage();
+
 }
 
 // Event Submit Form
